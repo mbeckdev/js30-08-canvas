@@ -19,7 +19,7 @@ looks like
 
 ![image](https://user-images.githubusercontent.com/4518809/150606295-fd87a0a3-0d4f-4839-bd5d-ccea2ffbb2f6.png)
 
-* put the lineJoin and lineCap back in
+* put the lineJoin and lineCap back in.
 
 ![image](https://user-images.githubusercontent.com/4518809/150606469-ac98c460-bc83-4df4-bb7b-05cbb715c67e.png)
 
@@ -27,9 +27,9 @@ looks like
 
 ![image](https://user-images.githubusercontent.com/4518809/150606542-dd53a197-78bf-4181-a597-350a1da1f1c0.png)
 
-This makes the color change. hue here is a variable that changes. we just push the hue variable from 0 to 360 to get all the colors
+This makes the color change, "hue" here is a variable that changes. We just push the hue variable from 0 to 360 to get all the colors.
 
-Even if the hue is over, it still gives you a color. We set it back to 0 though 
+Even if the hue is over, it still gives you a color. We set it back to 0 though.
 
 ![image](https://user-images.githubusercontent.com/4518809/150606694-0bc4393f-e720-4a52-a2c1-14182e562617.png)
  
@@ -37,7 +37,7 @@ Even if the hue is over, it still gives you a color. We set it back to 0 though
 
 
 
-This is just going along a #javascript30 tutorial
+This is just going along a #javascript30 tutorial. https://javascript30.com/ 
 
 ## Notes for the future
 
