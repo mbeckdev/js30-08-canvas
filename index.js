@@ -57,3 +57,16 @@ canvas.addEventListener('mousedown', (e) => {
 canvas.addEventListener('mousemove', draw);
 canvas.addEventListener('mouseup', () => (isDrawing = false));
 canvas.addEventListener('mouseout', () => (isDrawing = false));
+
+let globalCompositeButton = document.getElementById(
+  'global-composite-operation-button'
+);
+
+globalCompositeButton.addEventListener('click', changeGlobalComposite);
+function changeGlobalComposite() {
+  if (ctx.globalCompositeOperation === 'multiply') {
+    ctx.globalCompositeOperation = 'source-over';
+  } else {
+    ctx.globalCompositeOperation = 'multiply';
+  }
+}
