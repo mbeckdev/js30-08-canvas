@@ -61,12 +61,30 @@ canvas.addEventListener('mouseout', () => (isDrawing = false));
 let globalCompositeButton = document.getElementById(
   'global-composite-operation-button'
 );
+let dom = {
+  globalCompositeButton: document.getElementById(
+    'global-composite-operation-button'
+  ),
+  lineJoinButton: document.getElementById('line-join-button'),
+};
 
-globalCompositeButton.addEventListener('click', changeGlobalComposite);
+dom.globalCompositeButton.addEventListener('click', changeGlobalComposite);
 function changeGlobalComposite() {
   if (ctx.globalCompositeOperation === 'multiply') {
     ctx.globalCompositeOperation = 'source-over';
   } else {
     ctx.globalCompositeOperation = 'multiply';
   }
+  dom.globalCompositeButton.textContent = `ctx.globalCompositeOperation = ${ctx.globalCompositeOperation}`;
+}
+
+dom.lineJoinButton.addEventListener('click', changeLineJoin);
+function changeLineJoin() {
+  if (ctx.lineJoin === 'round') {
+    ctx.lineJoin = 'miter';
+  } else {
+    ctx.lineJoin = 'round';
+  }
+  console.log(ctx.lineJoin);
+  dom.lineJoinButton.textContent = `ctx.lineJoin = ${ctx.lineJoin}`;
 }
