@@ -1,3 +1,7 @@
+'use strict';
+
+import { ctxOptions } from './ctxOptions.js';
+
 const canvas = document.querySelector('#draw');
 const ctx = canvas.getContext('2d');
 
@@ -61,11 +65,14 @@ canvas.addEventListener('mouseout', () => (isDrawing = false));
 let globalCompositeButton = document.getElementById(
   'global-composite-operation-button'
 );
+
+// DOM buttons holder
 let dom = {
   globalCompositeButton: document.getElementById(
     'global-composite-operation-button'
   ),
   lineJoinButton: document.getElementById('line-join-button'),
+  lineCapButton: document.getElementById('line-cap-button'),
 };
 
 dom.globalCompositeButton.addEventListener('click', changeGlobalComposite);
@@ -78,13 +85,22 @@ function changeGlobalComposite() {
   dom.globalCompositeButton.textContent = `ctx.globalCompositeOperation = ${ctx.globalCompositeOperation}`;
 }
 
+// lineJoin  --toggles from 'round' to 'miter' to 'bevel'
 dom.lineJoinButton.addEventListener('click', changeLineJoin);
 function changeLineJoin() {
-  if (ctx.lineJoin === 'round') {
-    ctx.lineJoin = 'miter';
-  } else {
-    ctx.lineJoin = 'round';
-  }
-  console.log(ctx.lineJoin);
+  let index = ctxOptions.lineJoinOptions.indexOf(ctx.lineJoin);
+  index++;
+  if (index >= ctxOptions.lineJoinOptions.length) index = 0;
+  ctx.lineJoin = ctxOptions.lineJoinOptions[index];
   dom.lineJoinButton.textContent = `ctx.lineJoin = ${ctx.lineJoin}`;
+}
+
+// lineCap  --toggles from 'round' to 'butt' to 'square'
+dom.lineCapButton.addEventListener('click', changeLineCap);
+function changeLineCap() {
+  let index = ctxOptions.lineCapOptions.indexOf(ctx.lineCap);
+  index++;
+  if (index >= ctxOptions.lineCapOptions.length) index = 0;
+  ctx.lineCap = ctxOptions.lineCapOptions[index];
+  dom.lineCapButton.textContent = `ctx.lineCap = ${ctx.lineCap}`;
 }
