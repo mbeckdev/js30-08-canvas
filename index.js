@@ -20,6 +20,8 @@ let lastY = 0;
 let hue = 0;
 let direction = true;
 
+let lineWidthIsFixed = false;
+
 function draw(e) {
   console.log('lol');
 
@@ -46,10 +48,13 @@ function draw(e) {
   if (ctx.lineWidth >= 100 || ctx.lineWidth <= 1) {
     direction = !direction;
   }
-  if (direction) {
-    ctx.lineWidth++;
-  } else {
-    ctx.lineWidth--;
+
+  if (!lineWidthIsFixed) {
+    if (direction) {
+      ctx.lineWidth++;
+    } else {
+      ctx.lineWidth--;
+    }
   }
   // ctx.lineWidth++;
 }
@@ -73,6 +78,8 @@ let dom = {
   ),
   lineJoinButton: document.getElementById('line-join-button'),
   lineCapButton: document.getElementById('line-cap-button'),
+  lineWidthSlider: document.getElementById('slider-line-width-range'),
+  lineWidthModeToggle: document.getElementById('toggle-line-width-mode'),
 };
 
 dom.globalCompositeButton.addEventListener('click', changeGlobalComposite);
@@ -103,4 +110,18 @@ function changeLineCap() {
   if (index >= ctxOptions.lineCapOptions.length) index = 0;
   ctx.lineCap = ctxOptions.lineCapOptions[index];
   dom.lineCapButton.textContent = `ctx.lineCap = ${ctx.lineCap}`;
+}
+
+// line width slider
+dom.lineWidthSlider.addEventListener('click', changeLineWidth);
+function changeLineWidth() {
+  lineWidthIsFixed = true;
+  ctx.lineWidth = dom.lineWidthSlider.value;
+  console.log(dom.lineWidthSlider.value);
+  console.log(ctx.lineWidth);
+}
+// line width toggle button
+dom.lineWidthModeToggle.addEventListener('click', changeLineWidthMode);
+function changeLineWidthMode() {
+  lineWidthIsFixed ? (lineWidthIsFixed = false) : (lineWidthIsFixed = true);
 }
