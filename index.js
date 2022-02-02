@@ -12,7 +12,7 @@ ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
 ctx.lineCap = 'round';
 ctx.lineWidth = 100;
-ctx.globalCompositeOperation = 'multiply';
+ctx.globalCompositeOperation = 'source-over';
 
 let isDrawing = false;
 let lastX = 0;
@@ -91,6 +91,7 @@ function changeGlobalComposite() {
   }
   dom.globalCompositeButton.textContent = `ctx.globalCompositeOperation = ${ctx.globalCompositeOperation}`;
 }
+dom.globalCompositeButton.textContent = `ctx.globalCompositeOperation = ${ctx.globalCompositeOperation}`;
 
 // lineJoin  --toggles from 'round' to 'miter' to 'bevel'
 dom.lineJoinButton.addEventListener('click', changeLineJoin);
@@ -101,6 +102,7 @@ function changeLineJoin() {
   ctx.lineJoin = ctxOptions.lineJoinOptions[index];
   dom.lineJoinButton.textContent = `ctx.lineJoin = ${ctx.lineJoin}`;
 }
+dom.lineJoinButton.textContent = `ctx.lineJoin = ${ctx.lineJoin}`;
 
 // lineCap  --toggles from 'round' to 'butt' to 'square'
 dom.lineCapButton.addEventListener('click', changeLineCap);
@@ -111,6 +113,7 @@ function changeLineCap() {
   ctx.lineCap = ctxOptions.lineCapOptions[index];
   dom.lineCapButton.textContent = `ctx.lineCap = ${ctx.lineCap}`;
 }
+dom.lineCapButton.textContent = `ctx.lineCap = ${ctx.lineCap}`;
 
 // line width slider
 dom.lineWidthSlider.addEventListener('click', changeLineWidth);
