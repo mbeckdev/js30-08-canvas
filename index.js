@@ -6,7 +6,7 @@ const canvas = document.querySelector('#draw');
 const ctx = canvas.getContext('2d');
 
 canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
+canvas.height = window.innerHeight * 0.99;
 
 ctx.strokeStyle = '#BADA55';
 ctx.lineJoin = 'round';
