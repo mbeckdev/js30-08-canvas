@@ -8,12 +8,24 @@ body {
   position: relative;
 }
 
+button {
+  height: 1.6rem;
+}
+
 #overlay-container {
   position: absolute;
   top: 0;
   left: 0;
   /* border: 1px solid red; */
   width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.width-mode-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .slider-line-width-container {
